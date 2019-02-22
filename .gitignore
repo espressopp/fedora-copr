@@ -1,0 +1,5 @@
+espressopp-*.tar.gz
+espressopp-*.src.rpm
+*.diff
+*.patch
+*~
