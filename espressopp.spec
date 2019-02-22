@@ -109,4 +109,3 @@ make -C mpich test CTEST_OUTPUT_ON_FAILURE=1
 %changelog
 * Thu Feb 21 2019 Christoph Junghans <junghans@votca.org> - 2.0.1-1
 - initial import
-
