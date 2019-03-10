@@ -5,6 +5,7 @@ Summary:        Parallel simulation software for soft matter research
 License:        GPLv3+
 Url:            http://www.espresso-pp.de/
 Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
+Patch0:         https://github.com/espressopp/espressopp/pull/271.patch
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake
@@ -63,6 +64,7 @@ This package contains %{name} compiled against MPICH.
 
 %prep
 %setup -q
+%patch0 -p1
 
 # Remove bundled libs
 rm -rf contrib/boost contrib/mpi4py
