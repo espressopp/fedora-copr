@@ -23,8 +23,13 @@ BuildRequires:  boost-python2-devel
 %else
 BuildRequires:  boost-python-devel
 %endif
+%if 0%{?fedora}
 Requires:       python2-h5py
 BuildRequires:  python2-h5py
+%else
+Requires:       h5py
+BuildRequires:  h5py
+%endif
 
 %description
 ESPResSo++ is an extensible, flexible, parallel simulation software
