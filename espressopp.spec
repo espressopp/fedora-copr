@@ -18,7 +18,11 @@ BuildRequires:  mpich-devel
 BuildRequires:  boost-mpich-devel
 BuildRequires:  openmpi-devel
 BuildRequires:  boost-openmpi-devel
+%if 0%{?fedora} >= 29
 BuildRequires:  boost-python2-devel
+%else
+BuildRequires:  boost-python-devel
+%endif
 Requires:       python2-h5py
 BuildRequires:  python2-h5py
 
