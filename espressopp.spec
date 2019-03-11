@@ -100,13 +100,13 @@ make -C mpich test CTEST_OUTPUT_ON_FAILURE=1
 
 %files -n python2-%{name}-openmpi
 %doc AUTHORS NEWS README.md COPYING
-%{python2_sitearch}/openmpi/%{modname}
-%{python2_sitearch}/openmpi/_%{modname}.so
+%{python2_sitearch}/openmpi/%{name}
+%{python2_sitearch}/openmpi/_%{name}.so
 
 %files -n python2-%{name}-mpich
 %doc AUTHORS NEWS README.md COPYING
-%{python2_sitearch}/mpich/%{modname}
-%{python2_sitearch}/mpich/_%{modname}.so
+%{python2_sitearch}/mpich/%{name}
+%{python2_sitearch}/mpich/_%{name}.so
 
 %changelog
 * Thu Feb 21 2019 Christoph Junghans <junghans@votca.org> - 2.0.1-1
