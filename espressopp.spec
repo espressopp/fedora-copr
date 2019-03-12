@@ -8,7 +8,7 @@ Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz#/%
 Patch0:         https://github.com/espressopp/espressopp/pull/271.patch
 
 BuildRequires:  gcc-c++
-BuildRequires:  cmake
+BuildRequires:  cmake3
 BuildRequires:  fftw-devel
 BuildRequires:  python2-numpy
 BuildRequires:  python2-devel
@@ -83,14 +83,14 @@ mkdir openmpi mpich
 
 pushd openmpi
 %{_openmpi_load}
-%{cmake} -DWITH_RC_FILES=OFF -DEXTERNAL_BOOST=ON -DEXTERNAL_MPI4PY=ON -DWITH_XTC=ON -DPYTHON_INSTDIR=${MPI_PYTHON2_SITEARCH} ..
+%{cmake3} -DWITH_RC_FILES=OFF -DEXTERNAL_BOOST=ON -DEXTERNAL_MPI4PY=ON -DWITH_XTC=ON -DPYTHON_INSTDIR=${MPI_PYTHON2_SITEARCH} ..
 %make_build
 %{_openmpi_unload}
 popd
 
 pushd mpich
 %{_mpich_load}
-%{cmake} -DWITH_RC_FILES=OFF -DEXTERNAL_BOOST=ON -DEXTERNAL_MPI4PY=ON -DWITH_XTC=ON -DPYTHON_INSTDIR=${MPI_PYTHON2_SITEARCH} ..
+%{cmake3} -DWITH_RC_FILES=OFF -DEXTERNAL_BOOST=ON -DEXTERNAL_MPI4PY=ON -DWITH_XTC=ON -DPYTHON_INSTDIR=${MPI_PYTHON2_SITEARCH} ..
 %make_build
 %{_mpich_unload}
 popd
