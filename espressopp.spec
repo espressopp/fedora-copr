@@ -23,13 +23,8 @@ BuildRequires:  boost-python2-devel
 %else
 BuildRequires:  boost-python-devel
 %endif
-%if 0%{?fedora}
 Requires:       python2-h5py
 BuildRequires:  python2-h5py
-%else
-Requires:       h5py
-BuildRequires:  h5py
-%endif
 
 %description
 ESPResSo++ is an extensible, flexible, parallel simulation software
@@ -74,9 +69,6 @@ This package contains %{name} compiled against MPICH.
 %prep
 %setup -q
 %patch0 -p1
-%if 0%{?rhel}
-sed -i 's/1.58/1.53/' CMakeLists.txt
-%endif
 
 # Remove bundled libs
 rm -rf contrib/boost contrib/mpi4py
