@@ -74,6 +74,9 @@ This package contains %{name} compiled against MPICH.
 %prep
 %setup -q
 %patch0 -p1
+%if 0%{?rhel}
+sed -i 's/1.58/1.53/' CMakeLists.txt
+%endif
 
 # Remove bundled libs
 rm -rf contrib/boost contrib/mpi4py
