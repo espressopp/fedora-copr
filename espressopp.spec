@@ -1,12 +1,10 @@
 Name:           espressopp
-Version:        2.0.1
-Release:        0
+Version:        2.0.2
+Release:        1%{?dist}
 Summary:        Parallel simulation software for soft matter research
 License:        GPLv3+
 Url:            http://www.espresso-pp.de/
 Source0:        https://github.com/%{name}/%{name}/archive/v%{version}.tar.gz#/%{name}-%{version}.tar.gz
-Patch0:         https://github.com/espressopp/espressopp/pull/271.patch
-Patch1:         https://github.com/espressopp/espressopp/pull/275.patch
 
 BuildRequires:  gcc-c++
 BuildRequires:  cmake3
@@ -69,8 +67,6 @@ This package contains %{name} compiled against MPICH.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 # Remove bundled libs
 rm -rf contrib/boost contrib/mpi4py
@@ -122,5 +118,8 @@ make -C mpich test CTEST_OUTPUT_ON_FAILURE=1 %{?testargs}
 %{python2_sitearch}/mpich/_%{name}.so
 
 %changelog
-* Thu Feb 21 2019 Christoph Junghans <junghans@votca.org> - 2.0.1-1
+* Wed Mar 13 2019 Christoph Junghans <junghans@votca.org> - 2.0.2-1
+- version bump to v2.0.2
+
+* Thu Feb 21 2019 Christoph Junghans <junghans@votca.org> - 2.0.1-0
 - initial import
