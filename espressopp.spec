@@ -97,11 +97,18 @@ popd
 %make_install -C mpich
 
 %check
+%if 0%{?fedora} < 29
+%ifarch %ix86
+# roundoff error in old numpy on i386
+%global testargs ARGS='-E \\(MTSAdResS\\|dump_xtc\\)'
+%endif
+%endif
+
 %{_openmpi_load}
-make -C openmpi test CTEST_OUTPUT_ON_FAILURE=1
+make -C openmpi test CTEST_OUTPUT_ON_FAILURE=1 %{?testargs}
 %{_openmpi_unload}
 %{_mpich_load}
-make -C mpich test CTEST_OUTPUT_ON_FAILURE=1
+make -C mpich test CTEST_OUTPUT_ON_FAILURE=1 %{?testargs}
 %{_mpich_unload}
 
 %files -n python2-%{name}-openmpi
